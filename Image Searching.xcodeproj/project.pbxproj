@@ -56,15 +56,71 @@
 		0003CF0F252EB8AD009B40EF /* Image Searching */ = {
 			isa = PBXGroup;
 			children = (
-				0003CF10252EB8AD009B40EF /* AppDelegate.swift */,
-				0003CF12252EB8AD009B40EF /* SceneDelegate.swift */,
-				0003CF14252EB8AD009B40EF /* ViewController.swift */,
-				0003CF16252EB8AD009B40EF /* Main.storyboard */,
-				0003CF19252EB8B3009B40EF /* Assets.xcassets */,
-				0003CF1B252EB8B3009B40EF /* LaunchScreen.storyboard */,
-				0003CF1E252EB8B3009B40EF /* Info.plist */,
+				0003CF2D252EBD52009B40EF /* Storyboards */,
+				0003CF27252EBD18009B40EF /* Scenes */,
+				0003CF2E252EBD6B009B40EF /* Support Files */,
 			);
 			path = "Image Searching";
+			sourceTree = "<group>";
+		};
+		0003CF27252EBD18009B40EF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0003CF28252EBD1D009B40EF /* Image Scene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0003CF28252EBD1D009B40EF /* Image Scene */ = {
+			isa = PBXGroup;
+			children = (
+				0003CF2A252EBD32009B40EF /* Model */,
+				0003CF2B252EBD37009B40EF /* View */,
+				0003CF2C252EBD3C009B40EF /* Controller */,
+			);
+			path = "Image Scene";
+			sourceTree = "<group>";
+		};
+		0003CF2A252EBD32009B40EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0003CF2B252EBD37009B40EF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0003CF2C252EBD3C009B40EF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0003CF14252EB8AD009B40EF /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0003CF2D252EBD52009B40EF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0003CF16252EB8AD009B40EF /* Main.storyboard */,
+				0003CF1B252EB8B3009B40EF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		0003CF2E252EBD6B009B40EF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0003CF19252EB8B3009B40EF /* Assets.xcassets */,
+				0003CF10252EB8AD009B40EF /* AppDelegate.swift */,
+				0003CF12252EB8AD009B40EF /* SceneDelegate.swift */,
+				0003CF1E252EB8B3009B40EF /* Info.plist */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +133,7 @@
 				0003CF09252EB8AD009B40EF /* Sources */,
 				0003CF0A252EB8AD009B40EF /* Frameworks */,
 				0003CF0B252EB8AD009B40EF /* Resources */,
+				0003CF25252EBAD4009B40EF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,6 +188,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0003CF25252EBAD4009B40EF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0003CF09252EB8AD009B40EF /* Sources */ = {
@@ -216,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +365,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VX327H4378;
-				INFOPLIST_FILE = "Image Searching/Info.plist";
+				INFOPLIST_FILE = "Image Searching/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +385,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VX327H4378;
-				INFOPLIST_FILE = "Image Searching/Info.plist";
+				INFOPLIST_FILE = "Image Searching/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
