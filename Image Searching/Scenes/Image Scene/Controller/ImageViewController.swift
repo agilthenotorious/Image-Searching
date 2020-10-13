@@ -20,6 +20,7 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var warningLabel: UILabel!
     
+    var image = UIImage()
     var timer: Timer?
     let operationQueue = OperationQueue()
     
@@ -36,7 +37,7 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        self.setupUI()
     }
     
     func setupUI() {
@@ -49,6 +50,12 @@ class ImageViewController: UIViewController {
         
         self.searchBar.delegate = self
         self.collectionView.reloadData()
+        
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            let itemWidth = (self.collectionView.frame.width - 30)/2
+            flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        }
     }
     
     func setupKeyboardHandlers() {
@@ -83,14 +90,29 @@ class ImageViewController: UIViewController {
             
             fetchOperation.completionBlock = {
                 guard let section = fetchOperation.section else { return }
-                DispatchQueue.global().sync(flags: .barrier) {
-                    self.sectionDataSourceStored.append(section)
-                }
+                let queue = DispatchQueue(label: "Data Writing Queue", attributes: .concurrent)
+                queue.sync { self.sectionDataSourceStored.append(section) }
             }
             notifyOperation.addDependency(fetchOperation)
             self.operationQueue.addOperation(fetchOperation)
         }
         self.operationQueue.addOperation(notifyOperation)
+    }
+    
+    func filter(section: Int, row: Int) {
+        
+        let displaySections = self.sectionDataSource.filter { $0.provider.isOn }
+        
+        let url = displaySections[section].dataSource[row].imageUrl ?? ""
+        let filterOperation = FilterOperation(imageUrl: url, filter: self.selectedFilter)
+        
+        filterOperation.completionBlock = {
+            guard let filterImage = filterOperation.image else { return }
+            DispatchQueue.main.async {
+                self.image = filterImage
+            }
+        }
+        self.operationQueue.addOperation(filterOperation)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -120,14 +142,15 @@ extension ImageViewController: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
     UICollectionViewCell {
+        defer { self.image = UIImage() }
+        
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath)
                 as? ImageCollectionViewCell else { fatalError("Cell cannot be dequeued!")}
         
-        let displaySections = self.sectionDataSource.filter { $0.provider.isOn }
-        let url = displaySections[indexPath.section].dataSource[indexPath.row].imageUrl ?? ""
-        
-        cell.configureCell(imageUrl: url, filter: self.selectedFilter)
+        self.filter(section: indexPath.section, row: indexPath.row)
+        let passedImage = self.image
+        cell.configureCell(with: passedImage)
         return cell
     }
 }

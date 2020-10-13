@@ -116,10 +116,11 @@ extension FilterViewController: SwitchDelegate {
         if !isOn && numOfSwitchesOn < 2 {
             self.showAlert()
             return false
+        } else {
+            for (index, providerInstance) in providersArray.enumerated() where providerInstance.name == provider.name {
+                self.providers?[index].isOn = isOn
+            }
+            return true
         }
-        for (index, providerInstance) in providersArray.enumerated() where providerInstance == provider {
-            self.providers?[index].isOn = isOn
-        }
-        return true
     }
 }

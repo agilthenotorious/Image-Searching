@@ -41,10 +41,9 @@ class FetchOperation: Operation {
                                       parameters: parameters) { dictionary in
             if self.isCancelled { return }
             
-            guard let dictionary = dictionary as? [String: Any] else {
-                return
+            if let dictionary = dictionary as? [String: Any] {
+                self.updateSection(provider: self.provider, dictionary: dictionary)
             }
-            self.updateSection(provider: self.provider, dictionary: dictionary)
             self.isFinished = true
         }
     }

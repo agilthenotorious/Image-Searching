@@ -21,7 +21,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Ff-pe-SsV">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JoY-2K-oyO">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JoY-2K-oyO">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -36,16 +36,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-nq-ruY">
-                                                    <rect key="frame" x="5" y="5" width="118" height="118"/>
+                                                    <rect key="frame" x="13" y="13" width="102" height="102"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="top" secondItem="Oh5-1q-8U4" secondAttribute="top" constant="5" id="EVs-LI-Owd"/>
-                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="centerY" secondItem="Oh5-1q-8U4" secondAttribute="centerY" id="HqV-QH-tZ3"/>
-                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="leading" secondItem="Oh5-1q-8U4" secondAttribute="leading" constant="5" id="R3E-zO-gae"/>
-                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="centerX" secondItem="Oh5-1q-8U4" secondAttribute="centerX" id="SpZ-bD-l1T"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Oo-nq-ruY" secondAttribute="trailing" constant="5" id="Xaz-4T-71J"/>
-                                                <constraint firstAttribute="bottom" secondItem="6Oo-nq-ruY" secondAttribute="bottom" constant="5" id="sMw-6N-OYs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Oo-nq-ruY" secondAttribute="bottom" constant="5" id="hN0-Ev-uYi"/>
+                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="top" secondItem="Oh5-1q-8U4" secondAttribute="topMargin" constant="5" id="nyE-v1-koi"/>
+                                                <constraint firstItem="6Oo-nq-ruY" firstAttribute="leading" secondItem="Oh5-1q-8U4" secondAttribute="leadingMargin" constant="5" id="tSf-JU-Cil"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6Oo-nq-ruY" secondAttribute="trailing" constant="5" id="yCe-bY-NR3"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -73,19 +71,19 @@ Please search for a new image</string>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6bh-mA-eji"/>
+                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8bS-fk-mAH"/>
                             <constraint firstItem="ffM-Xl-b0b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BLw-i6-tmD"/>
+                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="top" secondItem="WI8-5I-508" secondAttribute="bottom" id="DsZ-yn-ZQ3"/>
                             <constraint firstItem="CaX-3Z-tZe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="HuS-bh-TLn"/>
                             <constraint firstItem="CaX-3Z-tZe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K3v-Wh-X4H"/>
                             <constraint firstItem="CaX-3Z-tZe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KVF-RG-s7O"/>
+                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="MUO-F6-wb9"/>
                             <constraint firstItem="WI8-5I-508" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OEp-at-4rd"/>
-                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q0p-ko-HIV"/>
                             <constraint firstItem="CaX-3Z-tZe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="TbI-gw-ZjO"/>
                             <constraint firstItem="WI8-5I-508" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vr7-KT-clf"/>
-                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="top" secondItem="WI8-5I-508" secondAttribute="bottom" symbolic="YES" id="aYk-Nj-22J"/>
                             <constraint firstItem="WI8-5I-508" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ak2-BV-xHh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ff-pe-SsV" secondAttribute="bottom" id="bbf-cd-h83"/>
                             <constraint firstItem="ffM-Xl-b0b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u0c-Fu-5pT"/>
+                            <constraint firstItem="3Ff-pe-SsV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u1g-s7-Bpb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mPK-ww-9xs">

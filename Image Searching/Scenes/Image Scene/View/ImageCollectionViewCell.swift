@@ -15,20 +15,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     var operationQueue = OperationQueue()
     
-    func configureCell(imageUrl: String, filter: ImageFilterType) {
-//        FilterOperation.shared.downloadFilterImage(with: imageUrl, filter: filter) { image in
-//            DispatchQueue.main.async {
-//                self.itemImageView.image = image
-//            }
-//        }
-        let filterOperation = FilterOperation(imageUrl: imageUrl, filter: filter)
-        
-        filterOperation.completionBlock = {
-            guard let image = filterOperation.image else { return }
-            DispatchQueue.main.async {
-                self.itemImageView.image = image
-            }
+    func configureCell(with image: UIImage) {
+        DispatchQueue.main.async {
+            self.itemImageView.image = image
         }
-        self.operationQueue.addOperation(filterOperation)
     }
 }

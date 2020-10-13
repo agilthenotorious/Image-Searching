@@ -82,9 +82,9 @@
 		0003CF0F252EB8AD009B40EF /* Image Searching */ = {
 			isa = PBXGroup;
 			children = (
-				00B127332533F46C0014F1AF /* Network Manager */,
-				0003CF2D252EBD52009B40EF /* Storyboards */,
+				00B127332533F46C0014F1AF /* Network Model */,
 				0003CF27252EBD18009B40EF /* Scenes */,
+				0003CF2D252EBD52009B40EF /* Storyboards */,
 				0003CF2E252EBD6B009B40EF /* Support Files */,
 			);
 			path = "Image Searching";
@@ -115,7 +115,6 @@
 				00B12702252ED7B60014F1AF /* Provider.swift */,
 				00B12705252ED7D10014F1AF /* Sections.swift */,
 				00B12708252ED7F70014F1AF /* ApiRequestType.swift */,
-				00B1270B252ED81A0014F1AF /* CIFilterType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,20 +185,21 @@
 		00B12714252ED8890014F1AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				00B1270B252ED81A0014F1AF /* CIFilterType.swift */,
 				00B1270E252ED85F0014F1AF /* ImageFilterType.swift */,
 				00B12716252ED8FC0014F1AF /* Delegates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		00B127332533F46C0014F1AF /* Network Manager */ = {
+		00B127332533F46C0014F1AF /* Network Model */ = {
 			isa = PBXGroup;
 			children = (
 				00B126FF252ED7800014F1AF /* NetworkManager.swift */,
 				00B1272D2532D0C40014F1AF /* FetchOperation.swift */,
 				00B127342533F4990014F1AF /* FilterOperation.swift */,
 			);
-			path = "Network Manager";
+			path = "Network Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
